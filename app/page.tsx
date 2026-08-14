@@ -1,3 +1,10 @@
+import { Navbar } from "@/components/dom/Navbar";
+
 export default function Page() {
-  return <main id="conteudo" className="relative z-[var(--z-content)]" />;
+  return (
+    <>
+      <Navbar telemetry={null} />
+      <main id="conteudo" className="relative z-[var(--z-content)]" />
+    </>
+  );
 }
