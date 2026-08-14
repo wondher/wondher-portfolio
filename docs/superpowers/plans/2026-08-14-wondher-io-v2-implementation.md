@@ -27,6 +27,9 @@
 1. **Sem `zustand`** — o spec listava como dep-alvo; o módulo mutável `scroll-state.ts` cumpre o papel sem dependência (YAGNI).
 2. **Shaders como template strings TS** (`lib/shaders/conductor.ts`) em vez de raw loader `.vert/.frag` — evita configurar loader no Turbopack; conteúdo GLSL idêntico ao spec §3.3.
 3. **Pin de Capabilities vive no componente** `Capabilities.tsx` (useGSAP scoped), não no orquestrador — o exemplo do spec §6.3 era ilustrativo; ownership por seção limpa o cleanup.
+4. **Câmera `fov` 32→36 + rim light no `SceneRoot`** — ajuste de presença do monólito mantendo a coordenada [3.8] do master prompt, verificado visualmente por screenshots.
+5. **Colapso da navbar ao rolar** (Observer, spec §4.1) — adiado para pós-merge.
+6. **Dispersão pseudo-aleatória dos shards com `%1` sobre negativos** — aceita visualmente (lê como debris de fragmentação).
 
 ## Mapa de arquivos
 

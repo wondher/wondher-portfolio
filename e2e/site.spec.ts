@@ -26,6 +26,30 @@ test("reduced-motion: sem canvas, classe aplicada, conteúdo íntegro", async ({
   await expect(page.locator("html.reduced-motion")).toBeAttached();
   await expect(page.locator("canvas")).toHaveCount(0);
   await expect(page.getByText("FLOWCRAFT").first()).toBeAttached();
+
+  const titles = [
+    "Interfaces com orçamento de frame.",
+    "Processo como infraestrutura.",
+    "Modelos com contrato.",
+    "Local-first. Cloud quando fizer sentido.",
+  ];
+  for (const title of titles) {
+    await expect(page.getByRole("heading", { name: title })).toBeVisible();
+  }
+
+  const panels = page.locator(".cap-panel");
+  await expect(panels).toHaveCount(4);
+  const boxes = [];
+  for (let i = 0; i < 4; i++) {
+    const box = await panels.nth(i).boundingBox();
+    expect(box).not.toBeNull();
+    boxes.push(box!);
+  }
+  for (let i = 0; i < boxes.length; i++) {
+    for (let j = i + 1; j < boxes.length; j++) {
+      expect(Math.abs(boxes[i].y - boxes[j].y)).toBeGreaterThanOrEqual(50);
+    }
+  }
 });
 
 test("a11y: sem violações serious/critical (axe)", async ({ page }) => {

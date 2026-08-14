@@ -25,6 +25,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     method: "POST",
     headers: { apikey: key, authorization: `Bearer ${key}`, "content-type": "application/json", prefer: "return=minimal" },
     body: JSON.stringify({ ...inquiry, source: "terminal-footer" }),
+    signal: AbortSignal.timeout(5000),
   }).catch(() => null);
 
   if (!res || !res.ok) {

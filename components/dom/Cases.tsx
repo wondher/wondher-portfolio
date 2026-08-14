@@ -2,7 +2,7 @@ import { CASES } from "@/lib/content/cases";
 
 export function Cases() {
   return (
-    <section id="cases" className="mx-auto max-w-[1320px] px-5 py-40 md:px-0">
+    <section id="cases" className="mx-auto max-w-[1320px] px-5 py-40 md:px-24">
       <p className="font-mono text-[13px] uppercase tracking-[0.08em] text-signal">CASOS SELECIONADOS</p>
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         {CASES.map((c) => (

@@ -51,4 +51,4 @@ supabase db push
 - **Performance:** First Load JS da rota `/` ≈ 186 KB gzip (chunk 3D/three.js é lazy-loaded via `dynamic(..., { ssr: false })`, ~230 KB gzip à parte, carregado só quando o canvas monta).
 - **SEO:** `app/robots.ts`, `app/sitemap.ts` e `app/opengraph-image.tsx` (Open Graph 1200×630 gerado via `next/og`).
 
-Detalhes de execução, números medidos nesta VM e ressalvas (Lighthouse em Chromium headless com SwiftShader) estão em `.superpowers/sdd/task-16-report.md`.
+Números acima foram medidos nesta VM (Lighthouse em Chromium headless com SwiftShader) e podem variar conforme o hardware.

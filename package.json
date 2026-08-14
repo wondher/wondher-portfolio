@@ -1,8 +1,6 @@
 {
   "name": "wondher-portfolio",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "directories": {
     "doc": "docs"
   },
@@ -14,18 +12,7 @@
     "typecheck": "tsc --noEmit",
     "e2e": "playwright test e2e/site.spec.ts"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wondher/wondher-portfolio.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/wondher/wondher-portfolio/issues"
-  },
-  "homepage": "https://github.com/wondher/wondher-portfolio#readme",
-  "private": "true",
+  "private": true,
   "type": "module",
   "dependencies": {
     "@gsap/react": "^2.1.2",

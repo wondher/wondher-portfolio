@@ -52,7 +52,7 @@ export function Capabilities() {
           {CAPABILITY_CLUSTERS.map((c, i) => (
             <article
               key={c.id}
-              className={`cap-panel md:absolute md:inset-0 ${i > 0 ? "mt-16 md:mt-0" : ""}`}
+              className={`cap-panel motion-safe:md:absolute motion-safe:md:inset-0 ${i > 0 ? "mt-16 motion-safe:md:mt-0 motion-safe:md:opacity-0" : ""}`}
             >
               <p className="font-mono text-[13px] uppercase tracking-[0.08em] text-signal">{c.label}</p>
               <h3 className="mt-4 text-[length:var(--text-h2)] font-semibold leading-tight text-ink">{c.title}</h3>

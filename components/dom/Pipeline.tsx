@@ -2,7 +2,7 @@ import { PIPELINE_STEPS } from "@/lib/content/pipeline";
 
 export function Pipeline() {
   return (
-    <section id="pipeline" className="mx-auto max-w-[1320px] px-5 py-40 md:px-0">
+    <section id="pipeline" className="mx-auto max-w-[1320px] px-5 py-40 md:px-24">
       <p className="font-mono text-[13px] uppercase tracking-[0.08em] text-signal">PIPELINE SEQUENCIAL DE ENTREGA</p>
       <ol className="relative mt-14 grid gap-14 md:before:absolute md:before:left-1/2 md:before:top-0 md:before:h-full md:before:w-px md:before:bg-hairline">
         {PIPELINE_STEPS.map((s, i) => (

@@ -26,7 +26,7 @@ export function TerminalFooter() {
   }
 
   return (
-    <footer id="contact" className="border-t border-hairline bg-surface/60 px-5 py-24 md:px-24">
+    <footer id="contact" className="relative z-[var(--z-content)] border-t border-hairline bg-surface/60 px-5 py-24 md:px-24">
       <p className="font-mono text-[13px] uppercase tracking-[0.08em] text-signal">TERMINAL — CANAL DIRETO</p>
       <div className="mt-8 max-w-[720px] rounded-2xl border border-hairline bg-void p-6 font-mono text-sm shadow-elevation">
         <div aria-live="polite" className="grid max-h-64 gap-1.5 overflow-y-auto">
