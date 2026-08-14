@@ -1,7 +1,9 @@
 import { About } from "@/components/dom/About";
 import { Capabilities } from "@/components/dom/Capabilities";
+import { Cases } from "@/components/dom/Cases";
 import { Hero } from "@/components/dom/Hero";
 import { Navbar } from "@/components/dom/Navbar";
+import { Pipeline } from "@/components/dom/Pipeline";
 
 export default function Page() {
   return (
@@ -11,6 +13,8 @@ export default function Page() {
         <Hero />
         <About />
         <Capabilities />
+        <Cases />
+        <Pipeline />
       </main>
     </>
   );
