@@ -25,12 +25,12 @@ varying vec2 vUv;
 void main() {
   float along = vUv.x;
   float seam = abs(vUv.y - 0.5) * 2.0;
-  float core = smoothstep(1.0, 0.2, seam);
+  float core = 1.0 - smoothstep(0.2, 1.0, seam);
   float filled = 1.0 - smoothstep(uProgress - 0.06, uProgress, along);
   float pulse = 0.5 + 0.5 * sin(along * 40.0 - uTime * 3.0);
   vec3 base = mix(uColorB, uColorA, along);
   vec3 color = base * (0.22 + 0.78 * filled) + base * pulse * 0.15 * filled;
-  float head = smoothstep(0.045, 0.0, abs(along - uProgress));
+  float head = 1.0 - smoothstep(0.0, 0.045, abs(along - uProgress));
   color += uColorA * head * 1.4;
   float alpha = core * (0.10 + 0.90 * max(filled, head * 0.9));
   gl_FragColor = vec4(color, alpha);
