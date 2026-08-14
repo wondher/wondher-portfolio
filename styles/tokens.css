@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  /* Cor — Deep Obsidian Void */
+  --color-void: #08090A;            /* base background */
+  --color-surface: #0F1115;         /* cards e superfícies */
+  --color-hairline: rgb(255 255 255 / 0.08);
+  --color-ink: #e7e9ec;             /* texto primário */
+  --color-ink-muted: #8a9099;       /* texto secundário */
+  --color-signal: #00f5a0;          /* acento primário — Data Signal (Monochrome Mint) */
+  --color-signal-dim: rgb(0 245 160 / 0.32);
+  --color-pulse: #6366f1;           /* acento secundário — Compute Pulse (grafismos, ≥ 24px) */
+  --color-pulse-text: #818cf8;      /* variante AA para texto corrente */
+
+  /* Tipografia */
+  --font-display: var(--font-geist-sans), "Geist Fallback", ui-sans-serif, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "JetBrains Mono", monospace;
+
+  /* Escala fluida — referência 1512px (clamp entre 390 e 1512) */
+  --text-display: clamp(3.25rem, 0.55rem + 8.2vw, 8.25rem);   /* 52 → 132px */
+  --text-h2: clamp(2rem, 1.02rem + 3vw, 3.5rem);              /* 32 → 56px  */
+  --text-h3: clamp(1.375rem, 1.1rem + 0.85vw, 1.75rem);       /* 22 → 28px  */
+  --text-lead: clamp(1.125rem, 1.04rem + 0.35vw, 1.375rem);   /* 18 → 22px  */
+  --text-body: 1rem;                                          /* 16px, lh 1.6 */
+  --text-label: 0.8125rem;                                    /* 13px mono, tracking 0.08em */
+
+  /* Movimento */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 180ms;    /* micro-interações */
+  --duration-base: 320ms;    /* estados/hover compostos */
+  --duration-reveal: 900ms;  /* reveals de seção (GSAP) */
+
+  /* Elevação */
+  --shadow-elevation: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 24px 64px rgb(0 0 0 / 0.55);
+  --shadow-signal: 0 0 24px rgb(0 245 160 / 0.25);
+
+  /* Camadas (z-index) */
+  --z-canvas: 0;        /* WebGL fixed */
+  --z-content: 10;      /* fluxo DOM */
+  --z-nav: 40;
+  --z-overlay: 50;
+}
