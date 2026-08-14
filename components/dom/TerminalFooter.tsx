@@ -19,7 +19,7 @@ export function TerminalFooter() {
     const printable: HistoryEntry[] = [{ kind: "prompt", text: `wondher@edge:~$ ${value}` }];
     for (const l of lines) {
       if (l.kind === "action") setContactMode(true);
-      else printable.push(l as HistoryEntry);
+      else printable.push(l);
     }
     setHistory((h) => [...h, ...printable]);
     if (inputRef.current) inputRef.current.value = "";
@@ -37,7 +37,13 @@ export function TerminalFooter() {
           ))}
         </div>
         {contactMode ? (
-          <ContactForm onDone={() => setContactMode(false)} />
+          <ContactForm
+            onDone={() => setContactMode(false)}
+            onSuccess={() => {
+              setHistory((h) => [...h, { kind: "out", text: "handshake concluído. resposta em < 24h úteis." }]);
+              setContactMode(false);
+            }}
+          />
         ) : (
           <form onSubmit={onSubmit} className="mt-4 flex items-center gap-2">
             <label htmlFor="term-in" className="sr-only">Comando do terminal</label>
@@ -61,8 +67,8 @@ export function TerminalFooter() {
   );
 }
 
-function ContactForm({ onDone }: { onDone: () => void }) {
-  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "fail">("idle");
+function ContactForm({ onDone, onSuccess }: { onDone: () => void; onSuccess: () => void }) {
+  const [status, setStatus] = useState<"idle" | "sending" | "fail">("idle");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -72,13 +78,13 @@ function ContactForm({ onDone }: { onDone: () => void }) {
       const res = await fetch("/api/inquiry", {
         method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(data),
       });
-      setStatus(res.ok ? "ok" : "fail");
+      if (res.ok) onSuccess();
+      else setStatus("fail");
     } catch {
       setStatus("fail");
     }
   }
 
-  if (status === "ok") return <p className="mt-4 text-signal">handshake concluído. resposta em &lt; 24h úteis.</p>;
   return (
     <form onSubmit={onSubmit} className="mt-4 grid gap-3">
       <label className="grid gap-1 text-ink-muted">nome
