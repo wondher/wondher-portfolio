@@ -6,11 +6,13 @@ import { Cases } from "@/components/dom/Cases";
 import { Pipeline } from "@/components/dom/Pipeline";
 import { StackSection } from "@/components/dom/StackSection";
 import { TerminalFooter } from "@/components/dom/TerminalFooter";
+import { getTelemetry } from "@/lib/telemetry/get-telemetry";
 
-export default function Page() {
+export default async function Page() {
+  const telemetry = await getTelemetry();
   return (
     <>
-      <Navbar telemetry={null} />
+      <Navbar telemetry={telemetry} />
       <main className="relative z-[var(--z-content)]">
         <Hero />
         <About />
