@@ -641,7 +641,9 @@ export function About() {
 - [ ] **Step 5: Compor na página, rodar testes, typecheck** — verde.
 - [ ] **Step 6: Commit** — `git commit -am "feat: hero e about com copy do spec"`
 
----### Task 7: Capabilities (split pinned + 4 clusters, copy §5.4)
+---
+
+### Task 7: Capabilities (split pinned + 4 clusters, copy §5.4)
 
 **Files:**
 - Create: `components/dom/Capabilities.tsx`, `lib/content/capabilities.ts`
