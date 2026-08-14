@@ -31,6 +31,10 @@ export function HeroMonolith() {
   );
 
   useFrame((state, delta) => {
+    const visible = scrollState.lerped < 0.3;
+    if (group.current.visible !== visible) group.current.visible = visible;
+    if (!visible) return;
+
     const { progress, pointer } = scrollState;
     const t = state.clock.elapsedTime;
     const p = THREE.MathUtils.clamp(progress / HERO_RANGE, 0, 1); // fase local do hero

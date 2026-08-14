@@ -32,11 +32,16 @@ function formations(): Float32Array[] {
 }
 
 export function CapabilityMatrix() {
+  const group = useRef<THREE.Group>(null!);
   const mesh = useRef<THREE.InstancedMesh>(null!);
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const forms = useMemo(formations, []);
 
   useFrame((state) => {
+    const visible = scrollState.lerped > 0.1 && scrollState.lerped < 0.62;
+    if (group.current.visible !== visible) group.current.visible = visible;
+    if (!visible) return;
+
     const cluster = THREE.MathUtils.clamp(scrollState.cluster, 0, 3);
     const from = forms[Math.floor(cluster)];
     const to = forms[Math.min(Math.floor(cluster) + 1, 3)];
@@ -58,7 +63,7 @@ export function CapabilityMatrix() {
   });
 
   return (
-    <group position={[-3.5, 0, -1.5]}>
+    <group ref={group} position={[-3.5, 0, -1.5]}>
       <instancedMesh ref={mesh} args={[undefined, undefined, COUNT]} frustumCulled={false}>
         <boxGeometry args={[0.09, 0.09, 0.09]} />
         <meshStandardMaterial color="#9aa3ad" metalness={0.85} roughness={0.3} emissive="#6366f1" emissiveIntensity={0.15} />

@@ -146,7 +146,7 @@ export function SceneRoot() {
       <Canvas
         dpr={[1, 1.75]}                                  // clamp de DPR
         gl={{ antialias: false, powerPreference: "high-performance", alpha: true }}
-        camera={{ position: [0, 0, 6], fov: 32, near: 0.1, far: 40 }}
+        camera={{ position: [0, 0, 6], fov: 36, near: 0.1, far: 40 }}
         frameloop="always"
       >
         <Suspense fallback={null}>
@@ -400,7 +400,7 @@ export function ConductorLine() {
 
 Narrativa em um take contínuo: **o monólito (capacidade bruta) se fragmenta em sinal, o sinal percorre o duto (a Linha Condutora), atravessa a matriz de capacidades, materializa casos e é validado no pipeline — terminando num terminal aberto: o convite é operar o sistema.**
 
-Tabela espacial consolidada (base 1512 × 982, câmera fov 32 em `[0, 0, 6]`):
+Tabela espacial consolidada (base 1512 × 982, câmera fov 36 em `[0, 0, 6]`):
 
 | # | Seção | Objeto 3D | Coord. inicial `[X,Y,Z]` | Cursor / Scroll | Transição / Descarte |
 |---|---|---|---|---|---|
