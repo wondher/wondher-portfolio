@@ -7,7 +7,7 @@ const DOMAINS: Array<{ area: string; items: string; usedIn: string }> = [
 
 export function StackSection() {
   return (
-    <section id="stack" className="mx-auto max-w-[1320px] px-5 py-40 md:px-24">
+    <section id="stack" className="px-5 py-40 md:px-24">
       <p className="font-mono text-[13px] uppercase tracking-[0.08em] text-signal">STACK & DOMÍNIO DE INFRAESTRUTURA</p>
       <dl className="mt-10 divide-y divide-[color:var(--color-hairline)] border-y border-hairline">
         {DOMAINS.map((d) => (

@@ -2,7 +2,7 @@ const FACTS = ["0 gerentes de conta", "1 responsável técnico", "100% do códig
 
 export function About() {
   return (
-    <section id="about" className="mx-auto grid max-w-[1320px] gap-12 px-5 py-40 md:grid-cols-2 md:px-24">
+    <section id="about" className="grid gap-12 px-5 py-40 md:grid-cols-2 md:px-24">
       <div>
         <h2 className="text-[length:var(--text-h2)] font-semibold leading-tight tracking-[-0.01em] text-ink">
           Atendimento direto é decisão de arquitetura.
