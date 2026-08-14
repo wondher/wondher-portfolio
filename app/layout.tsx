@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { ScrollOrchestrator } from "@/components/providers/ScrollOrchestrator";
 import "@/styles/tokens.css";
 
 export const metadata: Metadata = {
@@ -13,7 +14,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="bg-void text-ink font-display antialiased">{children}</body>
+      <body className="bg-void text-ink font-display antialiased">
+        <ScrollOrchestrator>{children}</ScrollOrchestrator>
+      </body>
     </html>
   );
 }
